@@ -1,0 +1,5 @@
+NOME DEL PROGETTO: Handy Song Skipper
+NOME DEL SOFTWARE: Handy
+SVILUPPATORI: Giacomo Marelli
+MATERIALI: Essendo un software le uniche cose necessarie sono la capadità e il tempo di programmarlo.
+LINGUAGGI USATI: Python, con l'aiuto di librerie come OpenCV e mediapipe.
