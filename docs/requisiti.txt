@@ -1,0 +1,13 @@
+Funzionali:
+	MUST - L'utente mostra la mano aperta per un secondo e la musica si ferma se è in riproduzione.
+	MUST - L'utente mostra la mano aperta per un secondo e la musica parte se è in pausa.
+	SHOULD - L'utente alza la mano aperta e la fa scorrere verso destra per la canzone successiva.
+	SHOULD - L'utente alza la mano aperta e la fa scorrere verso sinistra per la canzone precedente.
+Non Funzionali:
+	MUST - Ogni azione deve avvenire in meno di 3 secondi.
+	SHOULD - Ogni azione deve avvenire in meno di 2 secondi.
+Tecnologici:
+	MUST - L'applicazione deve essere interamente programmata in Python.
+	SHOULD - L'applicazione una volta avviata deve lavorare in background.
+	SHOULD - L'applicazione deve potersi spegnere tramite un gesto.
+	 

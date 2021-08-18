@@ -1,0 +1,17 @@
+Giovane:
+	Età: 12-32 anni
+	Residenza: Qualunque
+	Lingua: Qualunque
+	Potere d'acquisto: Medio-basso
+	Interessi: Videogiochi, oltre che le attività giornaliere come lo studio o il lavoro.
+	Carattere: Un invididuo impegnato, pieno di pensieri e che non vuole perdere tempo in nessun modo.
+		   Pretende ottimizzazione ed efficienza negli strumenti che usa nei propri impegni.
+	
+Adulto:
+	Età: 32-60 anni	
+	Residenza: Qualunque
+	Potere d'aquisto: Medio-alto
+	Interessi: Arrivando a casa stanco dal lavoro, vuole riposarsi guardando un film o una serie,
+		   ed ascoltando della musica.
+	Carattere: Un individuo pieno di impegni, che non vuole altri problemi oltre a quelli che
+		   gli vengono procurati dal lavoro o in certi casi dalla famiglia.
