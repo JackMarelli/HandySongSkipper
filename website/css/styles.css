@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  background-image: linear-gradient(316deg, #a067d4 0%, #3a125a 74%);
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-family: "Poppins", sans-serif;
+  height: 2em;
+  padding-inline: 1em;
+  color: whitesmoke;
+  text-transform: uppercase;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 18em;
+  border-top: solid 2px white;
+  border-bottom: solid 2px white;
+
+  animation: slide-right 1.7s cubic-bezier(0.15, 0.99, 0.27, 1);
+}
+
+.header p {
+  color: whitesmoke;
+  width: 100%;
+  text-align: center;
+  font-size: 10em;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.06em;
+}
+
+/* - - - Animations - - - */
+
+@keyframes slide-right {
+  from {
+    margin-left: -200%;
+    opacity: 20%;
+  }
+
+  to {
+    margin-left: 0%;
+    opacity: 100%;
+  }
+}
+
+@keyframes slide-left {
+  from {
+    margin-right: -200%;
+    opacity: 20%;
+  }
+
+  to {
+    margin-left: 0%;
+    opacity: 100%;
+  }
+}
