@@ -1,0 +1,9 @@
+(si da per scontato che l'app sia già accesa e che ci sia un music player già scelto e aperto dall'utente (ad es. Spotify))
+
+1:
+  1.0: L'utente alza la mano, mantiene la posizione e dopo un secondo la musica si ferma.
+  1.1: L'utente alza la mano, mantiene la posizione e dopo un secondo la musica parte.
+
+2: L'utente alza la mano e la fa scorrere verso destra, si passa alla canzone successiva.
+3: L'utente alza la mano e la fa scorrere vesto sinistra, si passa alla canzone precedente.
+4: (MAY) L'utente alza la mano e la chiude, l'app si spegne.
