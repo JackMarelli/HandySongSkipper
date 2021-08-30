@@ -21,12 +21,18 @@ while True:
     #draw landmarks & connections
     if results.multi_hand_landmarks:
         for handLms in results.multi_hand_landmarks:
+            for id, lm, in enumerate(handLms.landmark):
+                #print(id,lm)
+                h, w, c = img.shape
+                cx, cy = int(lm.x*w), int(lm.y*h)
+                print(id, cx, cy)
+
             mpDraw.draw_landmarks(img, handLms, mpHands.HAND_CONNECTIONS)
 
     #call general play-pause button if something is detected and wait 2s
     if results.multi_hand_landmarks:
         win32api.keybd_event(PLAY_PAUSE_KEY, win32api.MapVirtualKey(PLAY_PAUSE_KEY, 0))
-        time.sleep(2)
+        time.sleep(1)
 
     #draw fps
     currentTime = time.time()
