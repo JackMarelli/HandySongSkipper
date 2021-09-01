@@ -32,7 +32,7 @@ while True:
     #call general play-pause button if something is detected and wait 2s
     if results.multi_hand_landmarks:
         win32api.keybd_event(PLAY_PAUSE_KEY, win32api.MapVirtualKey(PLAY_PAUSE_KEY, 0))
-        time.sleep(1)
+        #time.sleep(1)
 
     #draw fps
     currentTime = time.time()

@@ -65,11 +65,21 @@ a {
   color:whitesmoke;
   font-family: 'Montserrat', sans-serif;
 }
+.aside {
+  font-size: 1.6em;
+}
 #download-article {
   border-bottom: 2px solid whitesmoke;
+  color: black;
+  mix-blend-mode: screen;
   width: fit-content;
   max-width: 350px;
-  min-width: 200px
+  min-width: 200px;
+  padding: 2em;
+
+  display: flex;
+  align-items: center;
+  background-color: white;
 }
 #left-article {
   border: 2px solid whitesmoke;
@@ -80,6 +90,19 @@ a {
   border: 2px solid whitesmoke;
   border-top: none;
   border-right: none;
+}
+#download {
+  text-align: center;
+  font-size: 2.4em;
+  margin: 0;
+}
+#now {
+  text-align: center;
+  font-size: 5.3em;
+  margin: 0;
+  margin-left: -8px;
+  margin-bottom: -14px;
+  margin-top: -12px;
 }
 
 @media screen and (max-width: 1860px) {
