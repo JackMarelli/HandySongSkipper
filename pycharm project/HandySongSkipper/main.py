@@ -1,47 +1,37 @@
-import mediapipe as mp
 import cv2
-import win32api
+import mediapipe as mp
 import time
+import HandTrackingModule as htm
 
-PLAY_PAUSE_KEY = 0xB3
 
-capture = cv2.VideoCapture(0)
-mpDraw = mp.solutions.drawing_utils
-mpHands = mp.solutions.hands
-hands = mpHands.Hands()
-currentTime = 0;
-previousTime = 0;
+pTime = 0
+cTime = 0
+cap = cv2.VideoCapture(1)
+detector = htm.handDetector()
 
 while True:
-    #capture image & process
-    success, img = capture.read()
-    rgbImg = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-    results = hands.process(rgbImg)
+    success, img = cap.read()
+    img = detector.findHands(img, draw=True )
+    lmList = detector.findPosition(img, draw=False)
+    #if len(lmList) != 0:
+    #    print(lmList)
 
-    #draw landmarks & connections
-    if results.multi_hand_landmarks:
-        for handLms in results.multi_hand_landmarks:
-            for id, lm, in enumerate(handLms.landmark):
-                #print(id,lm)
-                h, w, c = img.shape
-                cx, cy = int(lm.x*w), int(lm.y*h)
-                print(id, cx, cy)
+    if len(lmList) != 0:
+        if lmList[8][2] < lmList[6][2]:
+            print("index open")
+        if lmList[12][2] < lmList[10][2]:
+            print("middle open")
+        if lmList[16][2] < lmList[14][2]:
+            print("ring open")
+        if lmList[20][2] < lmList[18][2]:
+            print("pinky open")
 
-            mpDraw.draw_landmarks(img, handLms, mpHands.HAND_CONNECTIONS)
 
-    #call general play-pause button if something is detected and wait 2s
-    if results.multi_hand_landmarks:
-        win32api.keybd_event(PLAY_PAUSE_KEY, win32api.MapVirtualKey(PLAY_PAUSE_KEY, 0))
-        #time.sleep(1)
+    cTime = time.time()
+    fps = 1 / (cTime - pTime)
+    pTime = cTime
 
-    #draw fps
-    currentTime = time.time()
-    fps = 1/(currentTime-previousTime)
-    previousTime = currentTime
-    cv2.putText(img,"FPS: " + str(int(fps)),(10,30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255),2)
+    cv2.putText(img, str(int(fps)), (10, 70), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 255), 3)
 
-    #show image
     cv2.imshow("Image", img)
     cv2.waitKey(1)
-
-
