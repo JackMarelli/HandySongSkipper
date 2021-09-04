@@ -26,7 +26,6 @@ while True:
         if lmList[20][2] < lmList[18][2]:
             print("pinky open")
 
-
     cTime = time.time()
     fps = 1 / (cTime - pTime)
     pTime = cTime
