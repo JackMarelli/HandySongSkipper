@@ -1,30 +1,45 @@
 import cv2
 import mediapipe as mp
 import time
+import win32api
+
 import HandTrackingModule as htm
 
+PLAY_PAUSE_BUTTON = 0xB3
 
 pTime = 0
 cTime = 0
 cap = cv2.VideoCapture(1)
 detector = htm.handDetector()
 
+# restituisce True se le 4 dita lunghe sono aperte, se anche una sola è chiusa False
+def findOpenHand(varLmList):
+    open = False
+    if len(varLmList) != 0:
+        open = True
+        if varLmList[8][2] > varLmList[6][2]:
+            open = False
+        if varLmList[12][2] > varLmList[10][2]:
+            open = False
+        if varLmList[16][2] > varLmList[14][2]:
+            open = False
+        if varLmList[20][2] > varLmList[18][2]:
+            open = False
+    return open
+
+def playPause():
+    hwcode = win32api.MapVirtualKey(PLAY_PAUSE_BUTTON, 0)
+    win32api.keybd_event(PLAY_PAUSE_BUTTON, hwcode)
+
 while True:
     success, img = cap.read()
     img = detector.findHands(img, draw=True )
     lmList = detector.findPosition(img, draw=False)
-    #if len(lmList) != 0:
-    #    print(lmList)
 
-    if len(lmList) != 0:
-        if lmList[8][2] < lmList[6][2]:
-            print("index open")
-        if lmList[12][2] < lmList[10][2]:
-            print("middle open")
-        if lmList[16][2] < lmList[14][2]:
-            print("ring open")
-        if lmList[20][2] < lmList[18][2]:
-            print("pinky open")
+    print(findOpenHand(lmList))
+    if findOpenHand(lmList):
+        playPause()
+        time.sleep(2)
 
     cTime = time.time()
     fps = 1 / (cTime - pTime)
