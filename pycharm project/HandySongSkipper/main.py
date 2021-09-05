@@ -26,10 +26,11 @@ def findOpenHand(varLmList):
         if varLmList[20][2] > varLmList[18][2]:
             open = False
     return open
-
+# se lo stato di un qualsiasi music player è in play mette pausa e viceversa, aspetta 1 secondo
 def playPause():
     hwcode = win32api.MapVirtualKey(PLAY_PAUSE_BUTTON, 0)
     win32api.keybd_event(PLAY_PAUSE_BUTTON, hwcode)
+    time.sleep(1)
 
 while True:
     success, img = cap.read()
@@ -39,7 +40,7 @@ while True:
     print(findOpenHand(lmList))
     if findOpenHand(lmList):
         playPause()
-        time.sleep(2)
+
 
     cTime = time.time()
     fps = 1 / (cTime - pTime)
