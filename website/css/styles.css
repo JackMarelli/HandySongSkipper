@@ -32,6 +32,19 @@ a {
   text-transform: uppercase;
 }
 
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-family: "Poppins", sans-serif;
+  height: 2em;
+  padding-inline: 1em;
+  padding-top: 3em;
+  color: var(--primary-color);
+  text-transform: uppercase;
+}
+
 .content-1 {
   margin: auto;
   margin-top: 8em;
@@ -43,11 +56,12 @@ a {
 
 .content-2 {
   margin: auto;
+  margin-top: 2em;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 60%;
-  background-color: red;
+  text-align: right;
 }
 
 
